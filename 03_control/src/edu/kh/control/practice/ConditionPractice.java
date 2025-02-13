@@ -145,7 +145,7 @@ public class ConditionPractice {
 		}
 	}
 	
-	
+	// 깃테스트
 	
 	
 	
