@@ -144,9 +144,97 @@ public class ConditionPractice {
 			System.out.println(result);
 		}
 	}
-	
-	// 깃테스트
-	
+	public void practice6() {
+		System.out.println("국어점수 : ");
+		int score1 = sc.nextInt();
+		
+		System.out.println("수학점수 : ");
+		int score2 = sc.nextInt();
+		
+		System.out.println("영어점수 : ");
+		int score3 = sc.nextInt();
+		
+		
+		int sum = score1+score2+score3;
+		double average= sum/3.0;
+		
+		if(score1>=40&&score2>=40&&score3>=40&&sum>=60) {
+			
+			System.out.println("국어 : "+score1);
+			System.out.println("수학 : "+score2);
+			System.out.println("영어 : "+score3);
+			System.out.println("합계 : "+sum);
+			System.out.printf("평균 : %.1f\n",average );
+			System.out.println("축하합니다, 합격입니다!");
+		} else System.out.println("불합격입니다.");
+		
+		
+		
+		
+		
+	}
+	public void practice7() {
+		
+		System.out.println("1~12 사이의 정수 입력 :");
+		int int1 = sc.nextInt();
+		
+		switch(int1) {
+		case 1,3,5,7,8,10,12 : System.out.println(int1+"월은 31일까지 있습니다.");break;
+		case 4,6,9,11 : System.out.println(int1+"월은 30일까지 있습니다.");break;
+		case 2: System.out.println(int1+"월은 28일까지 있습니다.");break;
+		default : System.out.println(int1+"월은 잘못 입력된 달입니다.");
+		
+		}
+		
+		
+		
+		
+		
+		
+	}
+	public void practice8() {
+		
+		System.out.println("중간 고사 점수 : ");
+		double score1 = sc.nextDouble();
+		System.out.println("기말 고사 점수 : ");
+		double score2 = sc.nextDouble();
+		System.out.println("과제 점수 : ");
+		double score3 = sc.nextDouble();
+		System.out.println("출석 횟수 : ");
+		int score4 = sc.nextInt();
+		
+		score1*=0.2;
+		score2*=0.3;
+		score3*=0.3;
+		
+		double sum = score1+score2+score3+score4;
+		
+		String result;
+		
+		if(score4<=14) {
+			System.out.println("==============결과==============\n");
+			result="Fail [출석 횟수 부족 ("+score4+"/20)]";
+			
+		}else {
+			System.out.printf("==============결과==============\n");
+			System.out.printf("중간 고사 점수(20) : %.1f\n",score1);
+			System.out.printf("기말 고사 점수(30) : %.1f\n",score2);
+			System.out.printf("과제(30) : %.1f\n",score3);
+			System.out.printf("출석 점수(20) : %.1f\n",score4);
+			System.out.printf("총점 : %.1f\n",sum );
+			
+			
+			if(sum<70) result="Fail [점수 미달]";
+			else result = "PASS";		
+		}
+			System.out.println(result);
+		
+		
+		
+		
+		
+		
+	}
 	
 	
 }
