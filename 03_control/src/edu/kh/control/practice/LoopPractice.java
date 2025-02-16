@@ -170,7 +170,7 @@ Scanner sc= new Scanner(System.in);
 		System.out.println("정수 입력 : ");
 		int num = sc.nextInt();
 		String result = "";
-		for(int i=1; i<2*num; i++) {
+		for(int i=1; i<2*num-1; i++) {
 			if(i<=num) {
 				result+="*";
 				System.out.println(result);
