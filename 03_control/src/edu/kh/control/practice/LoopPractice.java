@@ -171,20 +171,51 @@ Scanner sc= new Scanner(System.in);
 		int num = sc.nextInt();
 		String result = "";
 		for(int i=1; i<2*num; i++) {
-			if(i<=num) {
+			if(i<num) {
 				result+="*";
 				System.out.println(result);
-			}else {
+			}else if(i==num) {
+				result+="*";
+				System.out.println(result);
+				result="";
+			}
+			else {
 				for(int ii=i; ii<2*num; ii++) {
-					result="";
-					for(int iii=ii; iii<2*num; iii++) {
+					result+="*";
+					/*for(int iii=ii; iii<2*num; iii++) {
 						result+="*";
-					}System.out.println(result);
-				}
+					}System.out.println(result);*/
+				}System.out.println(result);
+				result="";
 			}
 		}
 		
 		
 		
 	}
-}
+	public void practice11() {
+		System.out.print("자연수 하나를 입력하세요 : ");
+		int num = sc.nextInt();
+		String result = "";
+		int sum=0;
+		for(int i =1; i<=num; i++) {
+			if(i%2==0||i%3==0) {
+				result+=i+" ";
+			}else {
+				result+="";
+			} 
+		}System.out.println(result);
+		for(int i=1;i<=num;i++) {
+			if(i%2==0 && i%3==0) {
+				sum+=1;
+			}else {
+				sum+=0;
+			}
+		}System.out.printf("%s %d","count : ", sum);
+		
+		
+		
+		
+	}
+	
+}	
