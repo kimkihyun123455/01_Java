@@ -13,6 +13,6 @@ public class AbstractionRun {//실행용 클래스
 		
 		as.ex2();
 		//char 타입이 따르는 유니코드에서 0은 공백이기 때문에 char의 기본값은 공백으로 나온다
-	}
+	} //잔디깔기
 
 }
