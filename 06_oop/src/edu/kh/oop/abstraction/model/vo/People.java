@@ -215,7 +215,7 @@ public class People {//국민 클래스
 	public void setMyname(String myname) {
 		this.myname = myname;
 	}
-	//IllegalArgumentException
+	//IllegalArgumentException//오류발생
 	//메서드에 전달된 인자가(매개변수)유효하지 않을 때 발생하는 예외
 	//메서드 형태인 getter/setter를 이용하면 본인이 원하는 기능 추가 가능
 	//age가 0보다 잘을때 예외 발생, 클 때 속성에 전달받은 값 세팅
