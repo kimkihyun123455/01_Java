@@ -17,7 +17,8 @@ public class SnackController {
 		s.setPrice(price);
 		
 		
-		return "저장 완료되었습니다.";
+		return "저장 완료되었습니다."+
+				"\n저장된 정도를 확인하시겠습니까?(y/n) : ";
 	}
 	public String confirmData() {
 		return s.information();
