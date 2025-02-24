@@ -6,7 +6,6 @@ public class Run {
 
 	public static void main(String[] args) {
 
-		Employee em = new Employee();
 		Employee[] emp = new Employee[3];
 		
 		emp[0]=new Employee();
