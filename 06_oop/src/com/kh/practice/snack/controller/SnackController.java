@@ -23,5 +23,4 @@ public class SnackController {
 	public String confirmData() {
 		return s.information();
 	}
-	
 }

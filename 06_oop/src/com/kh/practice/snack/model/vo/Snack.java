@@ -65,9 +65,4 @@ public class Snack {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	
-	
-	
-	
-	
 }

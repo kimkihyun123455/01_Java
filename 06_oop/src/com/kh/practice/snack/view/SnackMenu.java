@@ -36,13 +36,6 @@ public class SnackMenu {
 			
 			System.out.println(scr.confirmData());
 		}else {
-			
 		}
-		
-		
-		
 	}
-	
-	
-	
 }
