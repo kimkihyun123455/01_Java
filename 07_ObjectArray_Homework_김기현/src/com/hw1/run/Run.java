@@ -6,6 +6,7 @@ public class Run {
 
 	public static void main(String[] args) {
 
+		Employee em = new Employee();
 		Employee[] emp = new Employee[3];
 		
 		emp[0]=new Employee();
@@ -16,10 +17,7 @@ public class Run {
 		
 		for(int i = 0; i < 3; i++) {
 				
-			System.out.printf("emp[%d] :%d, %s, %s, %s, %d, %c, %d, %.1f, %s, %s\n",i, emp[i].getEmpNo()
-						,emp[i].getEmpName(), emp[i].getDept(), emp[i].getJob(), emp[i].getAge(),
-						emp[i].getGender(),emp[i].getSalary(), emp[i].getBonusPoint(),emp[i].getPhone()
-						, emp[i].getAddress());
+			System.out.println("emp["+i+"] : "+emp[i].information());
 			
 		}
 		
@@ -44,10 +42,7 @@ public class Run {
 		
 		for(int i = 0; i < 2; i++) {
 			
-			System.out.printf("emp[%d] :%d, %s, %s, %s, %d, %c, %d, %.1f, %s, %s\n",i, emp[i].getEmpNo()
-						,emp[i].getEmpName(), emp[i].getDept(), emp[i].getJob(), emp[i].getAge(),
-						emp[i].getGender(),emp[i].getSalary(), emp[i].getBonusPoint(),emp[i].getPhone()
-						, emp[i].getAddress());
+			System.out.println("emp["+i+"] : "+emp[i].information());
 		}
 		
 		
