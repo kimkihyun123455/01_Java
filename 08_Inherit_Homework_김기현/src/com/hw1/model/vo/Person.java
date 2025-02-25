@@ -17,8 +17,13 @@ public class Person {
 	}
 	
 	public String information() {
+		//return String.format("이름 : %s / 나이 : %d / 신장 : %.1f / 몸무게 : %.1f", name, age, height, weight);
+		// String.format("", ) 형식은 printf 와 같은 형태로 작성할 때 String 형식을 반환한다
 		return "이름 : " + name + " / 나이 : " + age + " / 신장 : "+height+" / 몸무게 : "+weight;
 	}
+	
+	
+	
 
 	public String getName() {
 		return name;

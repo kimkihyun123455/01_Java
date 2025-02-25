@@ -12,18 +12,19 @@ public final class Employee extends Person {
 	
 
 	public Employee(String name, int age, double height, double weight, int salary, String dept) {
-		
-		p.setAge(age);
+		super(age,height,weight);
+		/*p.setAge(age);
 		p.setHeight(height);
 		p.setWeight(weight);
-		p.name=name;
+		p.name=name;//부모클래스 Person에 작성된 필드 name의 접근제한자가 protected이기 때문에 가능*/
+		this.name = name;
 		this.salary = salary;
 		this.dept = dept;
 	}
 	
-
+	@Override
 	public String information() {
-		return p.information()+" / 급여 : "+salary+" / 부서 : "+dept;
+		return super.information()+" / 급여 : "+salary+" / 부서 : "+dept;
 	}
 
 	public int getSalary() {

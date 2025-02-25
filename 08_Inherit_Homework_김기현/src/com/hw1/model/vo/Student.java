@@ -11,18 +11,19 @@ public class Student extends Person{
 
 
 	public Student(String name, int age, double height, double weight, int grade, String major) {
-		
-		p.setAge(age);
+		super(age,height,weight);
+		/*p.setAge(age);
 		p.setHeight(height);
 		p.setWeight(weight);
-		p.name=name;
+		p.name=name;*/
+		this.name = name;
 		this.grade = grade;
 		this.major = major;
 	}
 	
-	
+	@Override
 	public String information() {
-		return p.information()+" / 학년 : "+grade+" / 전공 : "+major;
+		return super.information()+" / 학년 : "+grade+" / 전공 : "+major;
 	}
 
 
