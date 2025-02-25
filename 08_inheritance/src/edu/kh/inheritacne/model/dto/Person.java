@@ -1,0 +1,76 @@
+package edu.kh.inheritacne.model.dto;
+
+//DTO(Data Transfer Object) : 비즈니스 계층과 데이터 교환을 위해 사용하는 객체
+public class Person /*extends Object*/{
+	
+	//Object 클래스
+	//모든 클래스의 최상위 부모클래스
+	//class 선언부에 상속 구문이 하나도 작성되어 있지 않다면
+	//컴파일러가 extends Object 구문을 자동으로 추가해준다
+	
+	//자식객체를 생성하면 내부에 부모객체가 먼저 생성된다
+	//부모생성자가 호출되어 부모객체가 먼저 생성되고
+	//이후 자식 생성자가 호출되어 자식객체가 생성된다
+	//즉 자식 객체는 안에 부모객체를 포함하고 있다
+	
+	
+	//속성
+	private String name;
+	private int age;
+	private String nationality;
+	
+	//생성자
+	
+	public Person() {}
+
+	public Person(String name, int age, String nationality) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.nationality = nationality;
+	}
+	
+	//기능(메서드)
+	//getter/setter
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getNationality() {
+		return nationality;
+	}
+
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
+	
+	public void breath() {
+		System.out.println("사람은 코나 입으로 숨을 쉰다");
+	}
+	
+	public void move() {
+		System.out.println("사람은 움직일 수 있다");
+	}
+	
+	@Override
+	public String toString() {
+		return name + " / " + age + " / " + nationality;
+	}
+	
+	
+	
+	
+	
+}
