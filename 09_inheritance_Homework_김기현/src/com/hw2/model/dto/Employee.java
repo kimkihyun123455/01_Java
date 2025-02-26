@@ -13,7 +13,7 @@ public class Employee extends Person{
 	
 	@Override
 	public String getInfo() {
-		return "ID : "+id+", 이름 : "+name+", 직책 : "+position;
+		return String.format("ID : %s, 이름 : %s , 직책 : %s", id, name, position);
 	}
 
 	public String getPosition() {

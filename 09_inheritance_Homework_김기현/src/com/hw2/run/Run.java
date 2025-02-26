@@ -12,12 +12,12 @@ public class Run {
 		ManagementSystem company = new Company(10);
 		ManagementSystem prison = new Prison(10);
 		
+		prison.addPerson(new Prisoner("1205","정준하","밥도둑"));
+		prison.addPerson(new Prisoner("1305","정준이","꿀도둑"));
+
+		prison.removePerson("1205");
 		
-		Prisoner no = new Prisoner("1205", "정준하", "밥도둑");
-		
-		System.out.println(no.getInfo());
-		
-		prison.addPerson(no);
+		prison.displayAllPersons();
 	}
 
 }
