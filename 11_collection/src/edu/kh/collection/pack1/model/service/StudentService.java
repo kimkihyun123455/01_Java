@@ -112,7 +112,7 @@ public class StudentService {
 				case 2 : selectAll(); break;
 				case 3 : System.out.println(updateStudent()); break;
 				case 4 : System.out.println(removeStudent()); break;
-				case 5 : /*searchName1();*/ break;
+				case 5 : System.out.println(searchName1()); break;
 				case 6 : /*searchName2();*/ break;
 				case 7 : /*sortByAge();*/ break;
 				case 8 : /*sortByName();*/ break;
@@ -339,6 +339,46 @@ public class StudentService {
 		}
 		return "취소";
 	}
+	
+	public String searchName1() {
+		System.out.print("검색하려는 이름을 입력하세요 : ");
+		String name = sc.next();
+		
+		String searchName ="";
+		for(Student str:studentList) {
+			
+			if(str.getName().equals(name)) {
+				searchName+=str;
+				return searchName;
+			}
+			
+		}return "일치하는 이름이 없습니다";
+		
+	}
+	
+	public String searchName2() {
+		
+	}
+	
+	public void sortByAge() {
+		
+		for(Student str : studentList) {
+			
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
 	
 	
 	
