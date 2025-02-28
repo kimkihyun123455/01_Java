@@ -1,6 +1,6 @@
 package edu.kh.collection.pack1.model.dto;
 
-public class Student {
+public class Student implements Comparable<Student>{
 
 	//속성
 	private String name;
@@ -77,6 +77,21 @@ public class Student {
 	public String toString() {
 		return "Student [name=" + name + ", age=" + age + ", region=" + region + ", gender=" + gender + ", score="
 				+ score + "]";
+	}
+
+	
+	@Override
+	public int compareTo(Student other) {
+		//compareTo() : 두 객체를 비교하고 순서를 결정.
+		//반환값 : 0(같음), 양수(왼쪽 객체가 더 큼), 음수(왼쪽 객체가 더 작음)
+		
+		//현개 객체의 나이 - 다른 객체의 나이
+		//값이 음수면 현재객체의 나이가 더 적다
+		//값이 양수면 현재객체의 나이가 더 많다
+		
+		return this.age - other.age; //나이를 기준으로 오름차순 정렬(작->큰)
+		//나이를 기준으로 내림차순 : other.age - this.age
+		
 	}
 	
 	

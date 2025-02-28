@@ -1,11 +1,16 @@
 package edu.kh.collection.pack1.model.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 import edu.kh.collection.pack1.model.dto.Student;
+
+
+
 
 public class StudentService {
 
@@ -38,10 +43,6 @@ public class StudentService {
 		
 		
 	}
-	
-	
-	
-	
 	
 	/*private List<Object> testList = new ArrayList<>();
 	
@@ -112,10 +113,10 @@ public class StudentService {
 				case 2 : selectAll(); break;
 				case 3 : System.out.println(updateStudent()); break;
 				case 4 : System.out.println(removeStudent()); break;
-				case 5 : System.out.println(searchName1()); break;
-				case 6 : /*searchName2();*/ break;
-				case 7 : /*sortByAge();*/ break;
-				case 8 : /*sortByName();*/ break;
+				case 5 : searchName1(); break;
+				case 6 : searchName2(); break;
+				case 7 : sortByAge(); break;
+				case 8 : sortByName(); break;
 				case 0 : System.out.println("프로그램 종료...");break;
 				default : System.out.println("메뉴에 작성된 번호만 입력하세요!");
 				}
@@ -283,12 +284,6 @@ public class StudentService {
 			
 		}
 		
-		
-		
-		
-		
-		
-		
 	}
 	
 	
@@ -340,42 +335,132 @@ public class StudentService {
 		return "취소";
 	}
 	
-	public String searchName1() {
+	boolean flag = true;
+	
+	public void searchName1() {
 		System.out.print("검색하려는 이름을 입력하세요 : ");
 		String name = sc.next();
 		
 		String searchName ="";
-		for(Student str:studentList) {
+		for(Student std:studentList) {
 			
-			if(str.getName().equals(name)) {
-				searchName+=str;
-				return searchName;
+			if(std.getName().equals(name)) {
+				System.out.println(std);//std.toString
+				flag = false;
 			}
 			
-		}return "일치하는 이름이 없습니다";
+		}if(flag) {
+			System.out.println("검색 결과가 없습니다");
+		}
 		
 	}
 	
-	public String searchName2() {
+	/**
+	 * 6.이름에 특정 문자열이 포함되는 학생을 찾아 조회하는 메서드
+	 * 
+	 * 문자열 입력 받아 studentList에서 꺼내는 Student 객체의 name값에 포함되는 문자열인지 검사
+	 * 
+	 * 포함되는 학생 객체를 찾은 경우 Student 객체 출력
+	 * 없다면 "검색 결과가 없습니다" 출력
+	 * 
+	 * 
+	 */
+	public void searchName2() {
+		
+		System.out.println("===========학생 검색(이름 부분 포함)==========");
+		
+		System.out.print("이름이 포함되는 문자열 입력 : ");
+		String input = sc.next();
+		
+		boolean flag = true;
+		
+		for(Student std : studentList) {
+			
+			//boolean을 반환하는 String.contains(문자열) : String에 문자열이 포함되어 있으면 true
+			if((std.getName()).contains(input)) {
+				
+				System.out.println(std);
+				flag = false;
+			}
+		}if(flag) {
+			System.out.println("검색 결과에 일치하는 이름이 없습니다");
+		}
+		
+		
 		
 	}
 	
+	/*
+	 * List를 정렬하는 방법
+	 * 
+	 * 방법1 : Comparable 인터페이스 상속 받아 compartTo() 메서드 재정의
+	 * Student에 Comparable 인터페이스를 상속받아 오버라이딩한 compareTo()에
+	 * 정의한 대로 정렬됨(나이 오름차, 내림차...)
+	 * 
+	 * 방법2 : Comparator 클래스에 의한 정렬 compare(); 사용 (익명 내부 클래스 사용)
+	 * 익명 내부 클래스 : 이름이 없는 클래스를 즉석에서 선언해서 한번만 사용할 목적으로 생성
+	 * 객체를 생성하면서 바로 구현 내용을 정의할 수 있음
+	 * 
+	 * 내부클래스 장점
+	 * 코드가 간결해짐(별도로 클래스를 만들지 않아도 될 때 사용)
+	 * 재정의와 동시에 사용할 수 있다(한번만 사용할 Comparator 등을 정의할 대 유용) 
+	 * 지역화 : 특정 메서드안에서만 필요할 때 사용
+	 */
+	
+	
+	/**
+	 * 7. 나이에 따라 오름차순 정렬
+	 * 
+	 * 
+	 */
 	public void sortByAge() {
 		
-		for(Student str : studentList) {
-			
-			
-			
+		//기준 객체 하나랑 다른 객체들을 모두 비교하는게 한 싸이클이고 이 싸이클을 객체의 개수만큼 반복하는거?
+		Collections.sort(studentList);
+		
+		for(Student std : studentList) {
+			System.out.println(std);
+		}
+	}
+	
+	/**
+	 * 
+	 *이름에 따라 정렬(가나다순)
+	 * 
+	 * 
+	 */
+	public void sortByName() {
+										//익명 내부클래스는 Comparator 인터페이스를 상속 받아
+										//구현한 클래스
+		Collections.sort(studentList, new Comparator<Student>() {
+
+			@Override
+			public int compare(Student o1, Student o2) {
+				//이름 비교
+				return o1.getName().compareTo(o2.getName());
+				//name은 String 형이라 기본연산이 불가능하고 compareTo로 비교해야 한다
+															
+				//String.compareTo() : 자바에서 객체를 비교하는 메서드
+				//String이 Comparbale을 상속받아 재정의해둔 compareTo() 메서드를 이용
+				
+				//compareTo() : 두 객체를 비교하고 순서를 결정함
+				//반환값 : 0 같음, 양수 왼쪽객체가 더 큼, 음수 왼쪽객체가 더 작음
+				
+				//return값의 o1과 o2의 순서를 바꾼다고 역순정렬이 되는 이유는
+				//원래 compare문에서 o1을 기준으로 o2와 비교를 하는 상황이기 때문에
+				//return의 compareto에서 o2를 기준으로 바꿔버리면 1-2가 2-1처럼 되어버리기 때문에
+				// 12345가 -1 -2 -3 -4 -5처럼 인식 되어버리고 이를 정렬하니 5 4 3 2 1이 된것이다
+			}
+		});
+		
+		for(Student std : studentList) {
+			System.out.println(std);
 		}
 		
 		
 		
 		
-		
-		
 	}
-	
-	
 	
 	
 	
