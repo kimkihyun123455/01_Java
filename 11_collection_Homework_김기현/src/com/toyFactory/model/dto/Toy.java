@@ -75,10 +75,31 @@ public class Toy implements Comparable<Toy>{
 		this.materials = materials;
 	}
 
+	
+	public String matstr() {
+		
+		StringBuilder sb = new StringBuilder();
+		
+		if(materials.isEmpty()) {
+			return "사용하는 재료가 없습니다";
+		}
+		
+		for(String material : materials) {
+			
+			sb.append(material).append(", ");
+			
+		}
+		sb.setLength(sb.length()-2);
+		return sb.toString();
+		
+	}
+	
+	
+	
 	@Override
 	public String toString() {
 		
-		return "이름 : "+name+" / 가격 : "+price+" / 색상 : "+color+" / 사용가능연령 : "+userAge+" / 제조년월일 : "+made+" / 재료 : "+materials;
+		return "이름 : "+name+" / 가격 : "+price+" / 색상 : "+color+" / 사용가능연령 : "+userAge+" / 제조년월일 : "+made+" / 재료 : "+matstr();
 	}
 		
 	@Override

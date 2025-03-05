@@ -86,7 +86,7 @@ public class ToyFactory {
 		case 2 :System.out.println(addPoppy());break;
 		case 3 :System.out.println(deletePoppy());break;
 		case 4 :arrayMade();break;
-		case 5 :break;
+		case 5 :arrayAge(); break;
 		case 6 :System.out.println(addMat());break;
 		case 7 :System.out.println(removeMat());break;
 		case 8 :System.out.println("파피가 당신에게 손을 흔듭니다");break;
@@ -191,18 +191,36 @@ public class ToyFactory {
 	}
 	
 	public void arrayAge() {
+	
+		System.out.println("<연령별로 사용 가능한 장난감>");
 		
-		List<Toy> toylist = new ArrayList<>(toy);
+		Map<Integer, List<Toy>> agemap = new HashMap<>();
 		
-		Collections.sort(toylist);
 		
-		Map<Integer, Toy> agemap = new HashMap<>();
-		
-
+		for(Toy t : toy) {
 			
-		
-		
-		
+			int age = t.getUserAge();
+			
+			agemap.putIfAbsent(age, new ArrayList<Toy>());
+			//putIfAbsent(key, value) key가 없으면 전달 받은 값 추가
+			
+			agemap.get(age).add(t);//이거 list에 add한거라 추가가 가능한거다. map에 put해서 덮어씌우기 고민할 필요 없었음;;
+		}
+		for(Entry<Integer, List<Toy>> entry : agemap.entrySet()) {
+			
+			int age = entry.getKey();
+			
+			List<Toy> toyList = entry.getValue();
+			
+			System.out.println("[연령 : "+age+"세]");
+			
+			int index =1;
+			for(Toy t : toyList) {
+				System.out.println(index+". "+t);
+				index++;
+			}
+			
+		}
 		
 	}
 	
