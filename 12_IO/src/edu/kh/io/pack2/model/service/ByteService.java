@@ -38,7 +38,7 @@ public class ByteService {
 		
 		try{
 			//new FileOutputStream("경로)
-			//경로에 작성된 파일과 연결된 파이 룿쳑 스트림 객체 생성
+			//경로에 작성된 파일과 연결된 파일 출력 스트림 객체 생성
 			//출력스트림에 연결된 파일이 존재하지 않으면 자동 생성
 			//단 폴더는 생성해주지 않는다
 			//기존 파일이 존재하면 내용을 덮어쓰기함
@@ -398,7 +398,7 @@ FileInputStream fis = null;
 		
 		try {
 			
-			//키보드 입력을 받기 위한 스트림 객체 새엇ㅇ
+			//키보드 입력을 받기 위한 스트림 객체 생성
 			br = new BufferedReader(new InputStreamReader(System.in));
 			//System.in(바이트 스트림)에서 받은 바이트형식을 InputStreamReader에서 문자열로 변환하고
 			//이를 BufferedReader로 br에 입력한다
